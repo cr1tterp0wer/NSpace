@@ -31,18 +31,12 @@ public class StackSort {
 			{
 				if(stack.size() < groupSize)
 				{
-					//System.out.println("push: " + set[i]);
 					stack.push(set[i]);
 				}
 				if(stack.size() >= groupSize){ //groupSize 3
 					
 					alStack.add(stackToString(stack));
-					//System.out.println("pop: " + stack.peek());
-					//System.out.println("Saving...current alStackSize: " + alStack.size());
-
-					//System.out.println("current Size: " +stack.size());
 					stack.pop();
-				    //System.out.println("aferPop: " + stack.peek());
 				}
 			}
 
@@ -54,19 +48,7 @@ public class StackSort {
 				System.out.println();
 				
 			} 
-			/*
-			Stack tempStack = new Stack();
-			LinkedList<String> llStack = new LinkedList();
-			tempStack.push("g");
-			tempStack.push("u");
-			tempStack.push("q");
 			
-			llStack.add(stackToString(tempStack));
-			tempStack.pop();
-			
-			
-			System.out.println("outoutout: " + llStack.get(0));
-			*/
 			return new ArrayList();
 	}
 	
@@ -87,12 +69,12 @@ public class StackSort {
   {
 	  Stack s = new Stack();
 	  int inc = -1;
-	  int main = _start;
+	  int main = _start,inc,current;
 	  
 	  s.push(set[main]);
 	  
-	  if(main < set.length-1)
-	    current = main+1;
+	  if(main < set.length-1) //clearance for current's insertion
+	    current = main+1;  
 	  else
 	    current = 0;
 	    
@@ -110,8 +92,8 @@ public class StackSort {
              	{
              	  s.push(set[inc]);
              	}
-             }
-             alStack.add(s);
+             }//group built-now save
+             alStack.add(stackToString(s));
              for(i=groupSize;i>2;i--)
                s.pop();
              current++;

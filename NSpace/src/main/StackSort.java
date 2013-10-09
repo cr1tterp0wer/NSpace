@@ -83,7 +83,44 @@ public class StackSort {
 			return output;
 	}
 	
-	
+  public void permutation(int _start)
+  {
+	  Stack s = new Stack();
+	  int inc = -1;
+	  int main = _start;
+	  
+	  s.push(set[main]);
+	  
+	  if(main < set.length-1)
+	    current = main+1;
+	  else
+	    current = 0;
+	    
+	  while(current != main && inc != current)
+	  {
+            s.push(set[current]);
+            
+            for(int i=0;i<groupSize;i++) //groupSize
+             {
+             	if(inc+1 < length)
+             	  inc++;
+             	else
+             	  inc=0;
+             	if(inc!=main && inc!=current)
+             	{
+             	  s.push(set[inc]);
+             	}
+             }
+             alStack.add(s);
+             for(i=groupSize;i>2;i--)
+               s.pop();
+             current++;
+	  }
+	  
+		
+		
+		
+  }
 	
 	
 	

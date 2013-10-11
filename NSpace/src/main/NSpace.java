@@ -9,23 +9,20 @@ import java.util.Stack;
 public class NSpace {
   
 	public static String[] set;
-	public static int setNumberSize;
+	public static int groupSize;
 	public static Scanner scan;
-	public static ArrayList<Stack> alStack;
 	
   public static void main(String[] args) {
 
 	  
 
 	  scan    = new Scanner(System.in);
-      System.out.println("Please Specify group number");
-	  setNumberSize = scan.nextInt();
+      System.out.print("Please Specify group size: ");
+	  groupSize = scan.nextInt();
 	  set = args;
-	  StackSort stackSort = new StackSort( setNumberSize, set);
-	  
+	  StackSort stackSort = new StackSort();
+	  stackSort.perm(set,0,set.length, groupSize);
 
-      
-	 alStack = stackSort.rGroup(0);
 
 	    
 	  
